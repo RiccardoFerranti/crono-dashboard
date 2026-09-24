@@ -2,7 +2,7 @@
 
 React/TypeScript take-home dashboard based on the supplied Figma design.
 
-**Status: bootstrap only.** The page is a temporary placeholder. Layout, shared Card, domain services, and features are not implemented yet. Theme values are provisional; confirm font and measurements in Figma before visual implementation.
+**Status: layout skeleton.** The responsive dashboard shell, placeholder sidebar, and minimal shared Card are implemented. Cards currently contain headings only; domain services and features are not implemented yet. Canvas background is confirmed as #F5F7F9. Other theme values and the font remain provisional. At 1440 × 750, the sidebar is 192 px and the right column is 408 px; initial row heights are layout placeholders to revisit with real content.
 
 ## Setup
 
