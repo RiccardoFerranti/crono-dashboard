@@ -1,0 +1,15 @@
+/* Bootstrap values only. Verify colors and font against Figma before layout work. */
+@theme {
+  --font-sans: system-ui, sans-serif;
+  --color-canvas: #f5f7f9;
+  --color-surface: #ffffff;
+  --color-ink: #0c1931;
+  --color-ink-secondary: #505b6e;
+  --color-ink-muted: #858fa2;
+  --color-border-subtle: #e5eaf3;
+  --color-brand: #18b5b0;
+  --color-brand-hover: #089c98;
+  --color-brand-soft: #e8f7f7;
+  --color-unread: #ffbd00;
+  --color-focus-ring: #089c98;
+}
