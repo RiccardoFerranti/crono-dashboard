@@ -1,7 +1,6 @@
 import { Card } from '@/ui/Card';
 import { Sidebar } from './components/Sidebar';
 
-// Layout placeholders only. Feature components will replace each card's content.
 export function DashboardPage() {
   return (
     <div className="bg-canvas text-ink flex min-h-dvh">
