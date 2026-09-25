@@ -1,5 +1,6 @@
 import { useSignals } from '@/api/signals/queries';
 import { Card } from '@/ui/Card';
+import { ScrollArea } from '@/ui/ScrollArea';
 import { SignalRow } from './SignalRow';
 
 export function SignalsCard() {
@@ -20,7 +21,7 @@ export function SignalsCard() {
           Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.
         </p>
       </div>
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="flex flex-col gap-4 pb-4">
           {signals.map((signal, index) => (
             <div key={signal.id} className="contents">
@@ -29,7 +30,7 @@ export function SignalsCard() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollArea>
     </Card>
   );
 }

@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { ChevronsLeft } from 'lucide-react';
 import companyDashLogo from '@/assets/icons/sidebar/company-logo.svg';
 import cronosLogo from '@/assets/brand/crono-logo.svg';
+import { ScrollArea } from '@/ui/ScrollArea';
 import { SidebarItem } from './SidebarItem';
 import { activeSidebarItemId, sidebarItems } from '../sidebar.config';
 import { SidebarTrialBanner } from './SidebarTrialBanner';
@@ -12,7 +13,7 @@ export function Sidebar() {
       aria-label="Sidebar"
       className={clsx(
         'sticky top-0 hidden h-dvh w-48 shrink-0',
-        'flex-col gap-2 overflow-y-auto',
+        'flex-col gap-2 overflow-hidden',
         'border-sidebar-border bg-surface border-r',
         'md:flex',
       )}
@@ -28,7 +29,7 @@ export function Sidebar() {
           <ChevronsLeft className="size-4" />
         </button>
       </div>
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      <ScrollArea className="min-h-0 flex-1">
         <nav aria-label="Main navigation">
           <ul className="flex flex-col gap-4">
             {sidebarItems.map((item) => (
@@ -36,7 +37,7 @@ export function Sidebar() {
             ))}
           </ul>
         </nav>
-      </div>
+      </ScrollArea>
       <SidebarTrialBanner days={2} />
 
       <div className="border-sidebar-border mt-auto flex items-center gap-2 border-t px-3 py-4">

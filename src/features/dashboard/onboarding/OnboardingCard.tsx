@@ -1,4 +1,5 @@
 import { Card } from '@/ui/Card';
+import { ScrollArea } from '@/ui/ScrollArea';
 import { onboardingSteps } from './consts';
 
 export function OnboardingCard() {
@@ -7,8 +8,8 @@ export function OnboardingCard() {
       <h2 id="onboarding-title" className="text-ink shrink-0 text-sm leading-5.5 font-semibold">
         Onboarding
       </h2>
-      <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="flex flex-col gap-4">
+      <ScrollArea className="min-h-0 flex-1">
+        <div className="flex flex-col gap-4 pr-2">
           {onboardingSteps.map((step, index) => (
             <div key={step.label} className="contents">
               <div className="flex items-center">
@@ -24,7 +25,7 @@ export function OnboardingCard() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollArea>
     </Card>
   );
 }
