@@ -24,7 +24,7 @@ export function KpiCard({ kpi }: KpiCardProps) {
   }, [progressPercentage]);
 
   return (
-    <Card className="flex h-17.75 flex-col rounded-lg! p-2!">
+    <Card className="flex h-17.75 flex-col rounded-lg p-2">
       <div className="flex items-center justify-between">
         <span className="text-ink-subtle text-xs leading-4 font-medium tracking-normal">{kpi.label}</span>
         {kpi.type === 'contacts-engaged' && (
