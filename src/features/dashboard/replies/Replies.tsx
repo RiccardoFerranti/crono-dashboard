@@ -9,7 +9,7 @@ export function RepliesCard() {
   const unreadCount = data?.unreadCount ?? 0;
 
   return (
-    <Card className="flex flex-col gap-2" aria-labelledby="replies-title">
+    <Card className="flex flex-col" aria-labelledby="replies-title">
       <div className="flex items-center justify-between gap-2">
         <h2 id="replies-title" className="text-ink text-sm leading-5.5 font-semibold">
           Replies
@@ -20,8 +20,8 @@ export function RepliesCard() {
         </a>
       </div>
       <div className="bg-brand-soft flex w-full items-center gap-4 rounded-xl py-4 pr-6 pl-4">
-        <div className="bg-brand/10 flex size-14 shrink-0 items-center justify-center rounded-full">
-          <img src={inboxIcon} alt="Inbox" className="size-7" />
+        <div className="bg-brand/10 flex size-12 shrink-0 items-center justify-center rounded-full">
+          <img src={inboxIcon} alt="Inbox" className="size-6" />
         </div>
         <p className="text-replies-count text-ink-secondary ml-2 tracking-tight">{unreadCount}</p>
         <div className="ml-auto flex -space-x-1.5" aria-label="Reply sources">

@@ -2,7 +2,7 @@ import { Card } from '@/ui/Card';
 
 export function WelcomeCard() {
   return (
-    <Card className="flex flex-col gap-2 px-6 pt-8" aria-labelledby="welcome-title">
+    <Card className="flex flex-col px-6 py-8" aria-labelledby="welcome-title">
       <h1 id="welcome-title" className="text-2xl leading-7.5 font-bold">
         Welcome Alex,
       </h1>

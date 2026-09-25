@@ -33,5 +33,13 @@
   --color-info-soft: #eaf1fb;
   --color-success: #1a9d6e;
   --color-success-soft: #e8f5d9;
+  --color-primary-accent: #3b58db;
+  --color-purple-accent: #8846dc;
+  --color-purple-soft: #f2eaff;
+  --color-gold-accent: #e2ad13;
+  --color-pink-accent: #e769cb;
+  --color-pink-soft: #fde5f8;
+  --color-info-track: #eaf3fb;
+  --color-target-muted: #afb5bf;
   --radius-card: 16px;
 }
