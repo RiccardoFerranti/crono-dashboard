@@ -1,5 +1,6 @@
 import { RepliesCard } from '@/features/dashboard/replies/Replies';
 import { PerformanceCard } from '@/features/dashboard/performance/PerformanceCard';
+import { OnboardingCard } from '@/features/dashboard/onboarding/OnboardingCard';
 import { TasksCard } from '@/features/dashboard/tasks/TasksCard';
 import { WelcomeCard } from '@/features/dashboard/welcome/Welcome';
 import { Card } from '@/ui/Card';
@@ -30,11 +31,7 @@ export function DashboardPage() {
         </div>
         <div className="grid min-w-0 gap-2 sm:grid-cols-2 xl:min-h-0 xl:grid-cols-1 xl:grid-rows-[293px_minmax(280px,1fr)]">
           <PerformanceCard />
-          <Card className="min-h-70 p-4" aria-labelledby="onboarding-title">
-            <h2 id="onboarding-title" className="text-ink text-sm font-semibold">
-              Onboarding
-            </h2>
-          </Card>
+          <OnboardingCard />
         </div>
       </main>
     </div>
