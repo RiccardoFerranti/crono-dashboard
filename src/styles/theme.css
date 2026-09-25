@@ -9,12 +9,14 @@
   --color-surface: #ffffff;
   --color-ink: #010e27;
   --color-ink-secondary: #505b6e;
+  --color-ink-subtle: #3e485b;
   --color-ink-muted: #858fa2;
   --color-border-subtle: #e5eaf3;
   --color-brand: #18b5b0;
   --color-sidebar-active: #0a9b94;
   --color-sidebar-inactive: #7a8395;
   --color-sidebar-border: #e6e9f2;
+  --color-divider: #e6e9f2;
   --color-brand-hover: #089c98;
   --color-brand-soft: #e9f8f8;
   --text-replies-count: 36px;
@@ -23,5 +25,13 @@
   --color-unread: #f9bb06;
   --color-focus-ring: #089c98;
   --color-trial-bg: #fef3d2;
+  --color-critical: #ed4c5e;
+  --color-critical-soft: #ffe9e9;
+  --color-warning: #c69812;
+  --color-warning-soft: #fef3d2;
+  --color-info: #3b85e8;
+  --color-info-soft: #eaf1fb;
+  --color-success: #1a9d6e;
+  --color-success-soft: #e8f5d9;
   --radius-card: 16px;
 }

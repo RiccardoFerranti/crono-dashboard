@@ -1,4 +1,5 @@
 import { RepliesCard } from '@/features/dashboard/replies/Replies';
+import { TasksCard } from '@/features/dashboard/tasks/TasksCard';
 import { WelcomeCard } from '@/features/dashboard/welcome/Welcome';
 import { Card } from '@/ui/Card';
 import { Sidebar } from './components/Sidebar';
@@ -16,11 +17,7 @@ export function DashboardPage() {
             <WelcomeCard />
             <RepliesCard />
           </div>
-          <Card className="min-h-35.75 p-4" aria-labelledby="tasks-title">
-            <h2 id="tasks-title" className="text-ink text-sm font-semibold">
-              Today’s tasks
-            </h2>
-          </Card>
+          <TasksCard />
           <Card className="flex min-h-70 min-w-0 flex-col overflow-hidden" aria-labelledby="signals-title">
             <div className="shrink-0 p-4">
               <h2 id="signals-title" className="text-ink text-sm font-semibold">
