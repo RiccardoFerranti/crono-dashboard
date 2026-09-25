@@ -16,7 +16,10 @@
   --color-sidebar-inactive: #7a8395;
   --color-sidebar-border: #e6e9f2;
   --color-brand-hover: #089c98;
-  --color-brand-soft: #e8f7f7;
+  --color-brand-soft: #e9f8f8;
+  --text-replies-count: 36px;
+  --text-replies-count--line-height: 44px;
+  --text-replies-count--font-weight: 500;
   --color-unread: #f9bb06;
   --color-focus-ring: #089c98;
   --color-trial-bg: #fef3d2;

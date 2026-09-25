@@ -37,7 +37,7 @@ export function Sidebar() {
           </ul>
         </nav>
       </div>
-      <SidebarTrialBanner />
+      <SidebarTrialBanner days={2} />
 
       <div className="border-sidebar-border mt-auto flex items-center gap-2 border-t px-3 py-4">
         <div aria-hidden="true" className="bg-user-avatar flex size-8 shrink-0 items-center justify-center rounded-full">
