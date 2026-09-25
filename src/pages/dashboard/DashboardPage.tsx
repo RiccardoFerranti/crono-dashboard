@@ -1,9 +1,9 @@
 import { RepliesCard } from '@/features/dashboard/replies/Replies';
 import { PerformanceCard } from '@/features/dashboard/performance/PerformanceCard';
 import { OnboardingCard } from '@/features/dashboard/onboarding/OnboardingCard';
+import { SignalsCard } from '@/features/dashboard/signals/SignalsCard';
 import { TasksCard } from '@/features/dashboard/tasks/TasksCard';
 import { WelcomeCard } from '@/features/dashboard/welcome/Welcome';
-import { Card } from '@/ui/Card';
 import { Sidebar } from './components/Sidebar';
 
 export function DashboardPage() {
@@ -20,14 +20,7 @@ export function DashboardPage() {
             <RepliesCard />
           </div>
           <TasksCard />
-          <Card className="flex min-h-70 min-w-0 flex-col overflow-hidden" aria-labelledby="signals-title">
-            <div className="shrink-0 p-4">
-              <h2 id="signals-title" className="text-ink text-sm font-semibold">
-                Signals
-              </h2>
-            </div>
-            <div className="min-h-0 flex-1 xl:overflow-y-auto" />
-          </Card>
+          <SignalsCard />
         </div>
         <div className="grid min-w-0 gap-2 sm:grid-cols-2 xl:min-h-0 xl:grid-cols-1 xl:grid-rows-[293px_minmax(280px,1fr)]">
           <PerformanceCard />
