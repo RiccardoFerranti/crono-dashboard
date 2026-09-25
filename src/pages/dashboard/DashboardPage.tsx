@@ -1,4 +1,5 @@
 import { RepliesCard } from '@/features/dashboard/replies/Replies';
+import { WelcomeCard } from '@/features/dashboard/welcome/Welcome';
 import { Card } from '@/ui/Card';
 import { Sidebar } from './components/Sidebar';
 
@@ -12,11 +13,7 @@ export function DashboardPage() {
       >
         <div className="grid min-w-0 gap-2 xl:min-h-0 xl:grid-rows-[auto_auto_minmax(0,1fr)]">
           <div className="grid min-w-0 gap-2 sm:grid-cols-2">
-            <Card className="min-h-35.5 p-6" aria-labelledby="welcome-title">
-              <h1 id="welcome-title" className="text-ink text-2xl font-bold">
-                Welcome Alex,
-              </h1>
-            </Card>
+            <WelcomeCard />
             <RepliesCard />
           </div>
           <Card className="min-h-35.75 p-4" aria-labelledby="tasks-title">
