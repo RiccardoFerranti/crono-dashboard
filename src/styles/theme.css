@@ -43,4 +43,5 @@
   --color-info-track: #eaf3fb;
   --color-target-muted: #afb5bf;
   --radius-card: 16px;
+  --shadow-dropdown: 0 4px 8px rgb(0 0 0 / 10%);
 }

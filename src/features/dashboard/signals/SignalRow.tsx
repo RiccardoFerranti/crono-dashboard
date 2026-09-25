@@ -1,7 +1,7 @@
 import type { Signal } from '@/api/signals/types';
 import { signalCategoryPresentation } from './consts';
+import { SignalActionMenu } from './SignalActionMenu';
 import { formatSignalDate, getMessagePartClassName } from './utils';
-import clsx from 'clsx';
 
 type SignalRowProps = {
   signal: Signal;
@@ -45,19 +45,7 @@ export function SignalRow({ signal }: SignalRowProps) {
         >
           {formatSignalDate(signal.date)}
         </time>
-        <button
-          type="button"
-          aria-label={`Action for ${signal.image.alt}`}
-          className={clsx(
-            'h-8 w-22.5 shrink-0 rounded-full',
-            'bg-action hover:bg-sidebar-active',
-            'px-4 py-1.75',
-            'cursor-pointer text-center',
-            'text-sm leading-4.5 font-medium tracking-normal text-white',
-          )}
-        >
-          Action
-        </button>
+        <SignalActionMenu signalName={signal.image.alt} />
       </div>
     </div>
   );
