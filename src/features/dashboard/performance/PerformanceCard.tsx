@@ -14,7 +14,7 @@ export function PerformanceCard() {
         </h2>
         <button type="button" className="text-sidebar-active text-sidebar flex cursor-pointer items-center gap-1 font-medium">
           Edit KPIs
-          <Pencil aria-hidden="true" className="size-4" />
+          <Pencil aria-hidden="true" className="size-3" strokeWidth={2.5} />
         </button>
       </div>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">

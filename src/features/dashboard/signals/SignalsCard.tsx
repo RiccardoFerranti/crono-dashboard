@@ -6,7 +6,7 @@ export function SignalsCard() {
   const { data: signals = [] } = useSignals();
 
   return (
-    <Card className="flex h-full min-h-70 min-w-0 flex-col gap-0 overflow-hidden p-0 xl:min-h-0" aria-labelledby="signals-title">
+    <Card className="flex h-104 min-h-0 min-w-0 flex-col gap-0 overflow-hidden p-0 xl:h-full" aria-labelledby="signals-title">
       <div className="shrink-0 p-4">
         <div className="flex items-center gap-1.5">
           <h2 id="signals-title" className="text-ink text-sm leading-5.5 font-semibold">
