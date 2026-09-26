@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 type SignalActionMenuProps = {
   signalName: string;
+  onComplete: () => void;
+  onDelete: () => void;
 };
 
 const actionButtonClassName = clsx(
@@ -20,7 +22,7 @@ const menuItemClassName = clsx(
   'data-[highlighted]:bg-brand-soft data-[highlighted]:text-sidebar-active',
 );
 
-export function SignalActionMenu({ signalName }: SignalActionMenuProps) {
+export function SignalActionMenu({ signalName, onComplete, onDelete }: SignalActionMenuProps) {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -35,11 +37,11 @@ export function SignalActionMenu({ signalName }: SignalActionMenuProps) {
           sideOffset={9}
           className="border-divider bg-surface w-54 rounded-xl border p-2 shadow-dropdown outline-none"
         >
-          <DropdownMenu.Item className={menuItemClassName}>
+          <DropdownMenu.Item className={menuItemClassName} onSelect={onComplete}>
             <span>Complete</span>
             <CircleCheckBig aria-hidden="true" className="size-4" />
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={menuItemClassName}>
+          <DropdownMenu.Item className={menuItemClassName} onSelect={onDelete}>
             <span>Delete</span>
             <Trash2 aria-hidden="true" className="size-4" />
           </DropdownMenu.Item>

@@ -2,11 +2,15 @@ import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import type { ComponentPropsWithoutRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type ScrollAreaProps = ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>;
+type ScrollAreaProps = ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {
+  constrainContentToViewport?: boolean;
+};
 
-export function ScrollArea({ className, children, ...props }: ScrollAreaProps) {
+export function ScrollArea({ className, children, constrainContentToViewport = false, ...props }: ScrollAreaProps) {
+  const contentConstraintClassName = constrainContentToViewport ? '[&>[data-radix-scroll-area-viewport]>div]:!block' : undefined;
+
   return (
-    <ScrollAreaPrimitive.Root type="hover" className={twMerge('relative', className)} {...props}>
+    <ScrollAreaPrimitive.Root type="hover" className={twMerge('relative', contentConstraintClassName, className)} {...props}>
       <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit] outline-none">
         {children}
       </ScrollAreaPrimitive.Viewport>

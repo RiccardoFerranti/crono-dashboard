@@ -12,7 +12,7 @@ export const signalsFixture: Signal[] = [
     message: [
       { text: 'Robert Smith', emphasis: 'strong' },
       { text: ' changed role from SDR to Senior SDR at ' },
-      { text: 'WeRoad', emphasis: 'accent' },
+      { text: 'Medium', emphasis: 'accent' },
     ],
     date: '2025-04-02',
     image: { src: mediumLogo, alt: 'Medium' },
@@ -24,7 +24,7 @@ export const signalsFixture: Signal[] = [
     message: [
       { text: 'Robert Smith', emphasis: 'strong' },
       { text: ' changed company from TravelPerk to ' },
-      { text: 'WeRoad', emphasis: 'accent' },
+      { text: 'Medium', emphasis: 'accent' },
     ],
     date: '2025-04-02',
     image: { src: mediumLogo, alt: 'Medium' },
