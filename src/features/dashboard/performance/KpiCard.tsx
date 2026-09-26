@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Info } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -30,7 +31,17 @@ export function KpiCard({ kpi }: KpiCardProps) {
       <div className="flex items-center justify-between">
         <span className="text-ink-subtle text-xs leading-4 font-medium tracking-normal">{kpi.label}</span>
         {kpi.type === 'contacts-engaged' && (
-          <Info aria-label="Information about contacts engaged" className="text-sidebar-inactive size-4" />
+          <button
+            type="button"
+            aria-label="More information about Contacts engaged"
+            className={clsx(
+              'text-sidebar-inactive cursor-pointer rounded-sm',
+              'focus-visible:ring-sidebar-active focus-visible:ring-2',
+              'focus-visible:ring-offset-2 focus-visible:outline-none',
+            )}
+          >
+            <Info aria-hidden="true" className="size-4" />
+          </button>
         )}
       </div>
       <div className="flex flex-col gap-1">
