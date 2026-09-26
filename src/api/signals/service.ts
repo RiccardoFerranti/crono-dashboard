@@ -12,7 +12,7 @@ function copySignal(signal: Signal): Signal {
 
 // Keep the static fixture immutable and use a separate in-memory store for runtime changes.
 const signalRecords = signalsFixture.map(copySignal);
-const signalLoadingDelay = 5000;
+const signalLoadingDelay = 500;
 const signalMutationDelay = 500;
 
 function waitForSignalLoading() {
