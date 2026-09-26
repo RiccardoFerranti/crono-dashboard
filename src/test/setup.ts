@@ -1,6 +1,15 @@
-import { cleanup } from '@testing-library/react'
-import { afterEach } from 'vitest'
+import { cleanup } from '@testing-library/react';
+import { afterEach, vi } from 'vitest';
 
-import '@testing-library/jest-dom/vitest'
+import '@testing-library/jest-dom/vitest';
 
-afterEach(cleanup)
+afterEach(cleanup);
+
+vi.stubGlobal(
+  'ResizeObserver',
+  class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  },
+);

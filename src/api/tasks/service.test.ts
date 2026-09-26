@@ -1,4 +1,4 @@
-import { afterEach, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ZodError } from 'zod';
 
 import { tasksSummaryFixture } from './data';
@@ -11,12 +11,14 @@ vi.mock('../utils', () => ({
 
 const validTasksSummary = { ...tasksSummaryFixture };
 
-afterEach(() => {
-  Object.assign(tasksSummaryFixture, validTasksSummary);
-});
+describe('Tasks service', () => {
+  afterEach(() => {
+    Object.assign(tasksSummaryFixture, validTasksSummary);
+  });
 
-test('rejects malformed task summary data at the service boundary', async () => {
-  Object.assign(tasksSummaryFixture, { overdueCount: '3' as unknown as number });
+  it('should reject malformed task summary data at the service boundary', async () => {
+    Object.assign(tasksSummaryFixture, { overdueCount: '3' as unknown as number });
 
-  await expect(getTasksSummary()).rejects.toBeInstanceOf(ZodError);
+    await expect(getTasksSummary()).rejects.toBeInstanceOf(ZodError);
+  });
 });
