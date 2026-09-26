@@ -6,9 +6,10 @@ import type { SidebarMenuItem } from '../sidebar.config';
 type SidebarItemProps = {
   item: SidebarMenuItem;
   active: boolean;
+  collapsed?: boolean;
 };
 
-export function SidebarItem({ item, active }: SidebarItemProps) {
+export function SidebarItem({ item, active, collapsed = false }: SidebarItemProps) {
   return (
     <li
       aria-current={active ? 'page' : undefined}
@@ -31,11 +32,11 @@ export function SidebarItem({ item, active }: SidebarItemProps) {
         className="size-6 shrink-0 bg-current mask-contain mask-center mask-no-repeat"
         style={{ maskImage: `url("${item.icon}")` }}
       />
-      <span>{item.label}</span>
-      {item.badge !== undefined && (
+      {!collapsed && <span>{item.label}</span>}
+      {!collapsed && item.badge !== undefined && (
         <span className={clsx('ml-auto rounded-full px-2 py-0.5', 'bg-unread text-surface')}>{item.badge}</span>
       )}
-      {item.expandable && <ChevronDown aria-hidden="true" className="ml-auto size-4" />}
+      {!collapsed && item.expandable && <ChevronDown aria-hidden="true" className="ml-auto size-4" />}
     </li>
   );
 }
