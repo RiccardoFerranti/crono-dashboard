@@ -22,7 +22,7 @@ npm run check
 npm run preview
 ```
 
-`check` runs lint, type checking, tests, and production build. Vitest uses jsdom, RTL cleanup, and jest-dom. No feature tests exist yet: the test command temporarily permits an empty suite. Remove `--passWithNoTests` when adding the first behavioral tests. GitHub Actions runs the same checks on Node 24.
+`check` runs lint, type checking, and tests. The production build remains a separate release check. Vitest uses jsdom, RTL cleanup, and jest-dom. GitHub Actions runs the same checks on Node 24.
 
 ## Frozen architecture
 
