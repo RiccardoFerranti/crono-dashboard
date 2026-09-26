@@ -14,3 +14,26 @@
     font-family: var(--font-sans);
   }
 }
+
+[data-sonner-toaster].crono-toaster {
+  --border-radius: var(--radius-card);
+  font-family: var(--font-sans);
+}
+
+[data-sonner-toaster].crono-toaster [data-sonner-toast][data-type='success'] {
+  background: var(--color-success-soft);
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-dropdown);
+  color: var(--color-success);
+}
+
+[data-sonner-toaster].crono-toaster [data-sonner-toast][data-type='error'] {
+  background: var(--color-critical-soft);
+  border-color: var(--color-critical);
+  box-shadow: var(--shadow-dropdown);
+  color: var(--color-critical);
+}
+
+[data-sonner-toaster].crono-toaster [data-description] {
+  color: var(--color-ink-secondary) !important;
+}

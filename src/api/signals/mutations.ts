@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useMutation, useMutationState, useQueryClient } from '@tanstack/react-query';
+import { toast } from 'sonner';
 import { completeSignal, deleteSignal } from './service';
 import type { Signal } from './types';
 import { signalsQueryKeys } from './queries';
@@ -35,14 +36,30 @@ export function useSignalMutations() {
   const completeMutation = useMutation({
     mutationKey: signalMutationKeys.complete,
     mutationFn: completeSignal,
-    onSuccess: (_, id) => removeFromCache(id),
+    onSuccess: (_, id) => {
+      removeFromCache(id);
+      toast.success('Signal completed');
+    },
+    onError: () => {
+      toast.error('Could not complete signal', {
+        description: 'The signal was restored. Please try again.',
+      });
+    },
     onSettled: (_, __, id) => releaseSignal(id),
   });
 
   const deleteMutation = useMutation({
     mutationKey: signalMutationKeys.delete,
     mutationFn: deleteSignal,
-    onSuccess: (_, id) => removeFromCache(id),
+    onSuccess: (_, id) => {
+      removeFromCache(id);
+      toast.success('Signal deleted');
+    },
+    onError: () => {
+      toast.error('Could not delete signal', {
+        description: 'The signal was restored. Please try again.',
+      });
+    },
     onSettled: (_, __, id) => releaseSignal(id),
   });
 
