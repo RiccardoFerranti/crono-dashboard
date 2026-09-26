@@ -1,3 +1,5 @@
+import NumberFlow from '@number-flow/react';
+
 import { useSignalMutations } from '@/api/signals/mutations';
 import { useSignals } from '@/api/signals/queries';
 import { Card } from '@/ui/Card';
@@ -29,7 +31,7 @@ export function SignalsCard() {
             <Skeleton aria-hidden="true" className="inline-flex h-6 min-w-7 rounded-xl" />
           ) : (
             <span className="bg-unread inline-flex h-6 min-w-7 items-center justify-center rounded-xl px-2 text-xs leading-4 font-semibold text-white">
-              {visibleSignals.length}
+              <NumberFlow value={visibleSignals.length} />
             </span>
           )}
         </div>
