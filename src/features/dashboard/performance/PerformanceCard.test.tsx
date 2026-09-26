@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -40,10 +40,27 @@ describe('PerformanceCard', () => {
 
     await user.click(retryButton);
 
+    await waitFor(() => {
+      expect(screen.getByRole('region', { name: 'May’s performance' })).toHaveAttribute('aria-busy', 'true');
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    });
+
     resolveRetry!(kpis);
 
     expect(await screen.findByText('Contacts engaged')).toBeInTheDocument();
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     expect(getPerformanceKpis).toHaveBeenCalledTimes(2);
+  });
+
+  it('should render each KPI returned by a successful query', async () => {
+    vi.mocked(getPerformanceKpis).mockResolvedValue([
+      { id: 'contacts-engaged', type: 'contacts-engaged', label: 'Contacts engaged', current: 10, target: 500 },
+      { id: 'pipeline', type: 'pipeline', label: 'Pipeline', current: 50000, target: 100000 },
+    ]);
+
+    renderPerformanceCard();
+
+    expect(await screen.findByText('Contacts engaged')).toBeInTheDocument();
+    expect(screen.getByText('Pipeline')).toBeInTheDocument();
   });
 });
