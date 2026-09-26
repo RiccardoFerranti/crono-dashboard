@@ -57,7 +57,12 @@ describe('TasksCard', () => {
 
     renderTasksCard();
 
-    expect((await screen.findAllByLabelText('Count unavailable')).length).toBe(4);
+    const unavailableCounts = await screen.findAllByLabelText('Count unavailable');
+
+    expect(unavailableCounts).toHaveLength(4);
+    for (const count of unavailableCounts) {
+      expect(count).toHaveTextContent('—');
+    }
     expect(screen.queryByText(/errors?/)).not.toBeInTheDocument();
   });
 });

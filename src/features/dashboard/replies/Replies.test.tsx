@@ -25,6 +25,7 @@ describe('RepliesCard', () => {
     renderRepliesCard();
 
     expect(await screen.findByText('0')).toBeInTheDocument();
+    expect(screen.queryByText('—')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Unread count unavailable')).not.toBeInTheDocument();
   });
 
