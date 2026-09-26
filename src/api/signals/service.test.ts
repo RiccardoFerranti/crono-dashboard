@@ -12,7 +12,7 @@ vi.mock('./data', () => ({
       id: 'signal-001',
       category: 'role-change',
       inSequence: false,
-      message: [{ text: 42, emphasis: 'strong' }],
+      message: [{ text: 'Robert Smith', emphasis: 'highlighted' }],
       date: '2025-04-02',
       image: { src: 'medium.svg', alt: 'Medium' },
     },
