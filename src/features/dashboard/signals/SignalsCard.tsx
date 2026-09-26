@@ -2,6 +2,7 @@ import { useSignals } from '@/api/signals/queries';
 import { useSignalMutations } from '@/api/signals/mutations';
 import { Card } from '@/ui/Card';
 import { ScrollArea } from '@/ui/ScrollArea';
+import { Skeleton } from '@/ui/Skeleton';
 import { SignalRow } from './SignalRow';
 import { SignalRowSkeleton } from './SignalRowSkeleton';
 
@@ -24,7 +25,7 @@ export function SignalsCard() {
             Signals
           </h2>
           {isPending ? (
-            <span aria-hidden="true" className="bg-divider inline-flex h-6 min-w-7 animate-pulse rounded-xl" />
+            <Skeleton aria-hidden="true" className="inline-flex h-6 min-w-7 rounded-xl" />
           ) : (
             <span className="bg-unread inline-flex h-6 min-w-7 items-center justify-center rounded-xl px-2 text-xs leading-4 font-semibold text-white">
               {visibleSignals.length}
