@@ -1,5 +1,4 @@
 import NumberFlow from '@number-flow/react';
-import { clsx } from 'clsx';
 
 import { useSignalMutations } from '@/api/signals/mutations';
 import { useSignals } from '@/api/signals/queries';
@@ -17,6 +16,7 @@ export function SignalsCard() {
   const { data: signals, isError, isFetching, isPending, refetch } = useSignals();
   const { pendingIds, completeSignal, deleteSignal } = useSignalMutations();
   const visibleSignals = signals?.filter((signal) => !pendingIds.has(signal.id)) ?? [];
+  const isEmpty = !isPending && !isError && visibleSignals.length === 0;
 
   return (
     <Card
@@ -48,37 +48,40 @@ export function SignalsCard() {
           Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.
         </p>
       </div>
-      <ScrollArea
-        constrainContentToViewport
-        className={clsx('min-h-0 min-w-0 flex-1', isError && '[&>[data-radix-scroll-area-viewport]>div]:h-full')}
-      >
-        <div className={clsx('flex min-w-0 flex-col', isError ? 'h-full' : 'gap-4 pb-4')}>
-          {isError ? (
-            <div className="flex flex-1 flex-col items-center justify-center gap-2 px-4 text-center">
-              <p role="alert" className="text-sidebar-inactive text-sm leading-5.5 font-medium">
-                Unable to load signals.
-              </p>
-              <Button onClick={() => refetch()} disabled={isFetching} aria-label="Retry loading signals">
-                Retry
-              </Button>
-            </div>
-          ) : isPending ? (
-            Array.from({ length: signalSkeletonRowCount }, (_, index) => (
-              <div key={index} className="contents">
-                <SignalRowSkeleton />
-                {index < signalSkeletonRowCount - 1 && <div aria-hidden="true" className="bg-divider h-px" />}
-              </div>
-            ))
-          ) : (
-            visibleSignals.map((signal, index) => (
-              <div key={signal.id} className="contents">
-                <SignalRow signal={signal} onComplete={completeSignal} onDelete={deleteSignal} />
-                {index < visibleSignals.length - 1 && <div aria-hidden="true" className="bg-divider h-px" />}
-              </div>
-            ))
-          )}
+      {isError ? (
+        <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-2 px-4 text-center">
+          <p role="alert" className="text-sidebar-inactive text-sm leading-5.5 font-medium">
+            Unable to load signals.
+          </p>
+          <Button onClick={() => refetch()} disabled={isFetching} aria-label="Retry loading signals">
+            Retry
+          </Button>
         </div>
-      </ScrollArea>
+      ) : isEmpty ? (
+        <div className="flex min-h-0 flex-1 items-center justify-center px-4 text-center">
+          <p className="text-sidebar-inactive text-sm leading-5.5 font-medium">No signals to show.</p>
+        </div>
+      ) : (
+        <ScrollArea constrainContentToViewport className="min-h-0 min-w-0 flex-1">
+          <div className="flex min-w-0 flex-col gap-4 pb-4">
+            {isPending ? (
+              Array.from({ length: signalSkeletonRowCount }, (_, index) => (
+                <div key={index} className="contents">
+                  <SignalRowSkeleton />
+                  {index < signalSkeletonRowCount - 1 && <div aria-hidden="true" className="bg-divider h-px" />}
+                </div>
+              ))
+            ) : (
+              visibleSignals.map((signal, index) => (
+                <div key={signal.id} className="contents">
+                  <SignalRow signal={signal} onComplete={completeSignal} onDelete={deleteSignal} />
+                  {index < visibleSignals.length - 1 && <div aria-hidden="true" className="bg-divider h-px" />}
+                </div>
+              ))
+            )}
+          </div>
+        </ScrollArea>
+      )}
     </Card>
   );
 }

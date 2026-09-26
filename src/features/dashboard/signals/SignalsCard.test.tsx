@@ -98,6 +98,16 @@ describe('SignalsCard', () => {
     expect(getSignals).toHaveBeenCalledTimes(2);
   });
 
+  it('should mark the Signals card as busy while the initial request is unresolved', async () => {
+    vi.mocked(getSignals).mockReturnValue(new Promise<Signal[]>(() => {}));
+
+    renderSignalsCard();
+
+    await waitFor(() => {
+      expect(screen.getByRole('region', { name: 'Signals' })).toHaveAttribute('aria-busy', 'true');
+    });
+  });
+
   it('should render the signals returned by a successful query and their visible count', async () => {
     vi.mocked(getSignals).mockResolvedValue([
       createSignal('signal-001', 'First signal'),
@@ -109,6 +119,15 @@ describe('SignalsCard', () => {
     expect(await screen.findByText('First signal')).toBeInTheDocument();
     expect(screen.getByText('Second signal')).toBeInTheDocument();
     await expectSignalsCount(2);
+  });
+
+  it('should render an empty state and a zero count for a successful empty response', async () => {
+    vi.mocked(getSignals).mockResolvedValue([]);
+
+    renderSignalsCard();
+
+    expect(await screen.findByText('No signals to show.')).toBeInTheDocument();
+    await expectSignalsCount(0);
   });
 
   it('should optimistically remove a completed signal and keep it removed after success', async () => {
