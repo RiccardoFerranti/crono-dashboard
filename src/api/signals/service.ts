@@ -1,6 +1,7 @@
+import { mockApiDelay, wait } from '../utils';
+
 import { signalsFixture } from './data';
 import type { Signal } from './types';
-import { mockApiDelay, wait } from '../utils';
 
 function copySignal(signal: Signal): Signal {
   // Copy nested data too, so callers cannot mutate the in-memory records by reference.

@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
-import type { SidebarMenuItem } from '../sidebar.config';
 import { ChevronDown } from 'lucide-react';
+
+import type { SidebarMenuItem } from '../sidebar.config';
 
 type SidebarItemProps = {
   item: SidebarMenuItem;

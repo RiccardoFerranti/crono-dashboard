@@ -1,8 +1,9 @@
-import { useSignals } from '@/api/signals/queries';
 import { useSignalMutations } from '@/api/signals/mutations';
+import { useSignals } from '@/api/signals/queries';
 import { Card } from '@/ui/Card';
 import { ScrollArea } from '@/ui/ScrollArea';
 import { Skeleton } from '@/ui/Skeleton';
+
 import { SignalRow } from './SignalRow';
 import { SignalRowSkeleton } from './SignalRowSkeleton';
 

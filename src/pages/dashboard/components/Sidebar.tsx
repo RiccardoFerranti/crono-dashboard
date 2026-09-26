@@ -1,10 +1,13 @@
 import { clsx } from 'clsx';
 import { ChevronsLeft } from 'lucide-react';
-import companyDashLogo from '@/assets/icons/sidebar/company-logo.svg';
+
 import cronosLogo from '@/assets/brand/crono-logo.svg';
+import companyDashLogo from '@/assets/icons/sidebar/company-logo.svg';
 import { ScrollArea } from '@/ui/ScrollArea';
-import { SidebarItem } from './SidebarItem';
+
 import { activeSidebarItemId, sidebarItems } from '../sidebar.config';
+
+import { SidebarItem } from './SidebarItem';
 import { SidebarTrialBanner } from './SidebarTrialBanner';
 
 export function Sidebar() {

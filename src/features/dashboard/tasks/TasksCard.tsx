@@ -1,6 +1,7 @@
 import { useTasksSummary } from '@/api/tasks/queries';
 import { Card } from '@/ui/Card';
 import { Skeleton } from '@/ui/Skeleton';
+
 import { TaskStatusCard } from './TaskStatusCard';
 
 export function TasksCard() {

@@ -1,12 +1,12 @@
+import analyticsIcon from '@/assets/icons/sidebar/analytics.svg';
 import dashboardIcon from '@/assets/icons/sidebar/dashboard.svg';
+import dealsIcon from '@/assets/icons/sidebar/deals.svg';
 import findNewIcon from '@/assets/icons/sidebar/find-new.svg';
+import inboxIcon from '@/assets/icons/sidebar/inbox.svg';
 import listsIcon from '@/assets/icons/sidebar/lists.svg';
-import templatesIcon from '@/assets/icons/sidebar/templates.svg';
 import sequencesIcon from '@/assets/icons/sidebar/sequences.svg';
 import tasksIcon from '@/assets/icons/sidebar/tasks.svg';
-import inboxIcon from '@/assets/icons/sidebar/inbox.svg';
-import dealsIcon from '@/assets/icons/sidebar/deals.svg';
-import analyticsIcon from '@/assets/icons/sidebar/analytics.svg';
+import templatesIcon from '@/assets/icons/sidebar/templates.svg';
 
 export type SidebarMenuItem = {
   id: string;

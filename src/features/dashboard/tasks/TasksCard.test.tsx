@@ -1,7 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
+
 import { getTasksSummary } from '@/api/tasks/service';
+
 import { TasksCard } from './TasksCard';
 
 vi.mock('@/api/tasks/service', () => ({

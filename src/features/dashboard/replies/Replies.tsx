@@ -1,8 +1,10 @@
 import { ChevronRight } from 'lucide-react';
-import inboxIcon from '@/assets/icons/replies/Inbox.svg';
+
 import { useRepliesSummary } from '@/api/replies/queries';
+import inboxIcon from '@/assets/icons/replies/Inbox.svg';
 import { Card } from '@/ui/Card';
 import { Skeleton } from '@/ui/Skeleton';
+
 import { replySourceLogos } from './consts';
 
 export function RepliesCard() {

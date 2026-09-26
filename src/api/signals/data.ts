@@ -2,6 +2,7 @@ import amazonLogo from '@/assets/logos/amazon-prime.svg';
 import mcdonaldLogo from '@/assets/logos/mcdonald.svg';
 import mediumLogo from '@/assets/logos/medium.svg';
 import redditLogo from '@/assets/logos/reddit.svg';
+
 import type { Signal } from './types';
 
 export const signalsFixture: Signal[] = [

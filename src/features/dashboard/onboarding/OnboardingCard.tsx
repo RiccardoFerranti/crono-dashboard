@@ -1,5 +1,6 @@
 import { Card } from '@/ui/Card';
 import { ScrollArea } from '@/ui/ScrollArea';
+
 import { onboardingSteps } from './consts';
 
 export function OnboardingCard() {

@@ -1,4 +1,5 @@
 import type { Signal } from '@/api/signals/types';
+
 import { signalCategoryPresentation } from './consts';
 import { SignalActionMenu } from './SignalActionMenu';
 import { formatSignalDate, getMessagePartClassName } from './utils';

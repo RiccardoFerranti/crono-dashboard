@@ -1,9 +1,10 @@
-import { RepliesCard } from '@/features/dashboard/replies/Replies';
-import { PerformanceCard } from '@/features/dashboard/performance/PerformanceCard';
 import { OnboardingCard } from '@/features/dashboard/onboarding/OnboardingCard';
+import { PerformanceCard } from '@/features/dashboard/performance/PerformanceCard';
+import { RepliesCard } from '@/features/dashboard/replies/Replies';
 import { SignalsCard } from '@/features/dashboard/signals/SignalsCard';
 import { TasksCard } from '@/features/dashboard/tasks/TasksCard';
 import { WelcomeCard } from '@/features/dashboard/welcome/Welcome';
+
 import { Sidebar } from './components/Sidebar';
 
 export function DashboardPage() {

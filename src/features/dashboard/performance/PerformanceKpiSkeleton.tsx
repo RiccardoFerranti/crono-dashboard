@@ -1,6 +1,7 @@
 import type { PerformanceKpiType } from '@/api/performance/types';
 import { Card } from '@/ui/Card';
 import { Skeleton } from '@/ui/Skeleton';
+
 import { kpiPresentation } from './consts';
 
 type PerformanceKpiSkeletonProps = {

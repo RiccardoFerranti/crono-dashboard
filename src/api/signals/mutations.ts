@@ -1,9 +1,10 @@
-import { useRef } from 'react';
 import { useMutation, useMutationState, useQueryClient } from '@tanstack/react-query';
+import { useRef } from 'react';
 import { toast } from 'sonner';
+
+import { signalsQueryKeys } from './queries';
 import { completeSignal, deleteSignal } from './service';
 import type { Signal } from './types';
-import { signalsQueryKeys } from './queries';
 
 const signalMutationKeys = {
   all: ['signals', 'mutation'] as const,

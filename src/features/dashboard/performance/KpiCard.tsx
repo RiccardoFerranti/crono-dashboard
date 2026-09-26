@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Info } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
 import type { PerformanceKpi } from '@/api/performance/types';
 import { Card } from '@/ui/Card';
+
 import { kpiPresentation } from './consts';
 import { formatPipelineValue, getProgressPercentage } from './utils';
 

@@ -1,6 +1,8 @@
 import { Pencil } from 'lucide-react';
+
 import { usePerformanceKpis } from '@/api/performance/queries';
 import { Card } from '@/ui/Card';
+
 import { performanceKpiTypes } from './consts';
 import { KpiCard } from './KpiCard';
 import { PerformanceKpiSkeleton } from './PerformanceKpiSkeleton';
