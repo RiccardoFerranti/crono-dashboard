@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { getTasksSummary } from '@/api/tasks/service';
@@ -17,6 +17,16 @@ function renderTasksCard() {
 describe('TasksCard', () => {
   afterEach(() => {
     vi.resetAllMocks();
+  });
+
+  it('should mark the tasks card as busy while the initial request is unresolved', async () => {
+    vi.mocked(getTasksSummary).mockReturnValue(new Promise<never>(() => {}));
+
+    renderTasksCard();
+
+    await waitFor(() => {
+      expect(screen.getByRole('region', { name: 'Today’s tasks' })).toHaveAttribute('aria-busy', 'true');
+    });
   });
 
   it('should render task counts and errors returned by the summary query', async () => {

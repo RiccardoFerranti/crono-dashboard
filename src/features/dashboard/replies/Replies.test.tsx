@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { getRepliesSummary } from '@/api/replies/service';
@@ -17,6 +17,16 @@ function renderRepliesCard() {
 describe('RepliesCard', () => {
   afterEach(() => {
     vi.resetAllMocks();
+  });
+
+  it('should mark the replies card as busy while the initial request is unresolved', async () => {
+    vi.mocked(getRepliesSummary).mockReturnValue(new Promise<never>(() => {}));
+
+    renderRepliesCard();
+
+    await waitFor(() => {
+      expect(screen.getByRole('region', { name: 'Replies' })).toHaveAttribute('aria-busy', 'true');
+    });
   });
 
   it('should render a successful zero unread count', async () => {

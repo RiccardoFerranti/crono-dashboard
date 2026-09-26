@@ -8,10 +8,10 @@ import { Skeleton } from '@/ui/Skeleton';
 import { replySourceLogos } from './consts';
 
 export function RepliesCard() {
-  const { data, isError, isPending } = useRepliesSummary();
+  const { data, isError, isFetching, isPending } = useRepliesSummary();
 
   return (
-    <Card className="flex flex-col gap-2" aria-labelledby="replies-title">
+    <Card className="flex flex-col gap-2" aria-labelledby="replies-title" aria-busy={isPending || isFetching}>
       <div className="flex items-center justify-between">
         <h2 id="replies-title" className="text-ink text-sm leading-5.5 font-semibold">
           Replies

@@ -5,10 +5,10 @@ import { Skeleton } from '@/ui/Skeleton';
 import { TaskStatusCard } from './TaskStatusCard';
 
 export function TasksCard() {
-  const { data, isError, isPending } = useTasksSummary();
+  const { data, isError, isFetching, isPending } = useTasksSummary();
 
   return (
-    <Card className="flex min-w-0 flex-col gap-2" aria-labelledby="tasks-title">
+    <Card className="flex min-w-0 flex-col gap-2" aria-labelledby="tasks-title" aria-busy={isPending || isFetching}>
       <h2 id="tasks-title" className="text-ink text-sm leading-5.5 font-semibold">
         Today’s tasks
       </h2>
