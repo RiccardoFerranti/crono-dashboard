@@ -2,10 +2,11 @@ import { ChevronRight } from 'lucide-react';
 import inboxIcon from '@/assets/icons/replies/Inbox.svg';
 import { useRepliesSummary } from '@/api/replies/queries';
 import { Card } from '@/ui/Card';
+import { Skeleton } from '@/ui/Skeleton';
 import { replySourceLogos } from './consts';
 
 export function RepliesCard() {
-  const { data } = useRepliesSummary();
+  const { data, isPending } = useRepliesSummary();
   const unreadCount = data?.unreadCount ?? 0;
 
   return (
@@ -19,11 +20,15 @@ export function RepliesCard() {
           <ChevronRight aria-hidden="true" className="size-5" strokeWidth={2.5} />
         </a>
       </div>
-      <div className="[container-type:inline-size] bg-brand-soft flex w-full items-center gap-4 rounded-xl py-4 pr-6 pl-4">
+      <div className="bg-brand-soft [container-type:inline-size] flex w-full items-center gap-4 rounded-xl py-4 pr-6 pl-4">
         <div className="bg-brand/10 flex size-12 shrink-0 items-center justify-center rounded-full">
           <img src={inboxIcon} alt="Inbox" className="size-6" />
         </div>
-        <p className="text-replies-count text-ink-secondary ml-2 tracking-tight">{unreadCount}</p>
+        {isPending ? (
+          <Skeleton className="bg-ink-secondary/20 ml-2 h-9 w-10" />
+        ) : (
+          <p className="text-replies-count text-ink-secondary ml-2 tracking-tight">{unreadCount}</p>
+        )}
         <div className="ml-auto flex -space-x-[clamp(6px,calc(62.8px_-_17.75cqw),28px)]" aria-label="Reply sources">
           {replySourceLogos.map((logo) => (
             <img key={logo.src} src={logo.src} alt={logo.alt} className="size-10 rounded-full bg-white ring-2 ring-white" />

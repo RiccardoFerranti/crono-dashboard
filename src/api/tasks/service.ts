@@ -1,7 +1,7 @@
 import { tasksSummaryFixture } from './data';
 import type { TasksSummary } from './types';
 
-const tasksQueryDelay = 5000;
+const tasksQueryDelay = 500;
 
 function waitForTasksQuery() {
   return new Promise<void>((resolve) => {
