@@ -5,6 +5,5 @@ import type { RepliesSummary } from './types';
 
 export async function getRepliesSummary(): Promise<RepliesSummary> {
   await wait(mockApiDelay);
-
   return { ...repliesSummaryFixture };
 }

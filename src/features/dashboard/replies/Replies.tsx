@@ -8,8 +8,7 @@ import { Skeleton } from '@/ui/Skeleton';
 import { replySourceLogos } from './consts';
 
 export function RepliesCard() {
-  const { data, isPending } = useRepliesSummary();
-  const unreadCount = data?.unreadCount ?? 0;
+  const { data, isError, isPending } = useRepliesSummary();
 
   return (
     <Card className="flex flex-col gap-2" aria-labelledby="replies-title">
@@ -32,7 +31,9 @@ export function RepliesCard() {
         {isPending ? (
           <Skeleton className="bg-ink-secondary/20 ml-2 h-9 w-10" />
         ) : (
-          <p className="text-replies-count text-ink-secondary ml-2 tracking-tight">{unreadCount}</p>
+          <p className="text-replies-count text-ink-secondary ml-2 tracking-tight">
+            {isError ? <span aria-label="Unread count unavailable">—</span> : data?.unreadCount}
+          </p>
         )}
         <div className="ml-auto flex -space-x-[clamp(6px,calc(62.8px-17.75cqw),28px)]" aria-label="Reply sources">
           {replySourceLogos.map((logo) => (

@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { ChevronsLeft } from 'lucide-react';
 import { useState } from 'react';
 
+import { useRepliesSummary } from '@/api/replies/queries';
 import cronosLogo from '@/assets/brand/crono-logo.svg';
 import cronoMark from '@/assets/brand/crono-mark.svg';
 import companyDashLogo from '@/assets/icons/sidebar/company-logo.svg';
@@ -14,6 +15,8 @@ import { SidebarTrialBanner } from './SidebarTrialBanner';
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const { data: replies, isError: isRepliesError, isPending: isRepliesPending } = useRepliesSummary();
+  const inboxBadge = isRepliesPending ? undefined : isRepliesError ? '—' : replies?.unreadCount;
 
   return (
     <aside
@@ -56,7 +59,14 @@ export function Sidebar() {
         <nav aria-label="Main navigation">
           <ul className="flex flex-col gap-4">
             {sidebarItems.map((item) => (
-              <SidebarItem key={item.id} item={item} active={item.id === activeSidebarItemId} collapsed={collapsed} />
+              <SidebarItem
+                key={item.id}
+                item={item}
+                active={item.id === activeSidebarItemId}
+                collapsed={collapsed}
+                badge={item.id === 'inbox' ? inboxBadge : item.badge}
+                badgeAriaLabel={item.id === 'inbox' && isRepliesError ? 'Count unavailable' : undefined}
+              />
             ))}
           </ul>
         </nav>

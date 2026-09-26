@@ -11,5 +11,6 @@ export function useRepliesSummary() {
     queryKey: repliesQueryKeys.summary,
     queryFn: getRepliesSummary,
     staleTime: Infinity,
+    retry: false,
   });
 }

@@ -23,7 +23,7 @@ export const sidebarItems: SidebarMenuItem[] = [
   { id: 'templates', label: 'Templates', icon: templatesIcon },
   { id: 'sequences', label: 'Sequences', icon: sequencesIcon },
   { id: 'tasks', label: 'Tasks', icon: tasksIcon },
-  { id: 'inbox', label: 'Inbox', icon: inboxIcon, badge: 24 },
+  { id: 'inbox', label: 'Inbox', icon: inboxIcon },
   { id: 'deals', label: 'Deals', icon: dealsIcon },
   { id: 'analytics', label: 'Analytics', icon: analyticsIcon, expandable: true },
 ];

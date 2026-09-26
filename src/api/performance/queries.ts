@@ -11,5 +11,6 @@ export function usePerformanceKpis() {
     queryKey: performanceQueryKeys.kpis,
     queryFn: getPerformanceKpis,
     staleTime: Infinity,
+    retry: false,
   });
 }

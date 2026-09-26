@@ -2,20 +2,13 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import { CircleCheckBig, Trash2 } from 'lucide-react';
 
+import { Button } from '@/ui/Button';
+
 type SignalActionMenuProps = {
   signalName: string;
   onComplete: () => void;
   onDelete: () => void;
 };
-
-const actionButtonClassName = clsx(
-  'h-8 w-22.5 shrink-0 rounded-full',
-  'bg-action hover:bg-sidebar-active',
-  'px-4 py-1.75',
-  'cursor-pointer text-center',
-  'focus-visible:ring-sidebar-active focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
-  'text-sm leading-4.5 font-medium tracking-normal text-white',
-);
 
 const menuItemClassName = clsx(
   'text-ink flex h-10 w-50 cursor-pointer items-center justify-between rounded-lg p-2',
@@ -27,9 +20,7 @@ export function SignalActionMenu({ signalName, onComplete, onDelete }: SignalAct
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <button type="button" aria-label={`Action for ${signalName}`} className={actionButtonClassName}>
-          Action
-        </button>
+        <Button aria-label={`Action for ${signalName}`}>Action</Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content

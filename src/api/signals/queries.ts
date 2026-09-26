@@ -11,5 +11,6 @@ export function useSignals() {
     queryKey: signalsQueryKeys.list,
     queryFn: getSignals,
     staleTime: Infinity,
+    retry: false,
   });
 }

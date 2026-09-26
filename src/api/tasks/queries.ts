@@ -11,5 +11,6 @@ export function useTasksSummary() {
     queryKey: tasksQueryKeys.summary,
     queryFn: getTasksSummary,
     staleTime: Infinity,
+    retry: false,
   });
 }

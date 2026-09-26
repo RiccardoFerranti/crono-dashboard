@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { ChevronDown } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 import type { SidebarMenuItem } from '../sidebar.config';
 
@@ -7,9 +8,11 @@ type SidebarItemProps = {
   item: SidebarMenuItem;
   active: boolean;
   collapsed?: boolean;
+  badge?: ReactNode;
+  badgeAriaLabel?: string;
 };
 
-export function SidebarItem({ item, active, collapsed = false }: SidebarItemProps) {
+export function SidebarItem({ item, active, collapsed = false, badge = item.badge, badgeAriaLabel }: SidebarItemProps) {
   return (
     <li
       aria-current={active ? 'page' : undefined}
@@ -33,8 +36,10 @@ export function SidebarItem({ item, active, collapsed = false }: SidebarItemProp
         style={{ maskImage: `url("${item.icon}")` }}
       />
       {!collapsed && <span>{item.label}</span>}
-      {!collapsed && item.badge !== undefined && (
-        <span className={clsx('ml-auto rounded-full px-2 py-0.5', 'bg-unread text-surface')}>{item.badge}</span>
+      {!collapsed && badge !== undefined && (
+        <span aria-label={badgeAriaLabel} className={clsx('ml-auto rounded-full px-2 py-0.5', 'bg-unread text-surface')}>
+          {badge}
+        </span>
       )}
       {!collapsed && item.expandable && <ChevronDown aria-hidden="true" className="ml-auto size-4" />}
     </li>
