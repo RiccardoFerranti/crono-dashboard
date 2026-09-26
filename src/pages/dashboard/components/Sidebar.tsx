@@ -24,7 +24,7 @@ export function Sidebar() {
         <button
           type="button"
           aria-label="Collapse sidebar"
-          className="bg-canvas flex size-6 cursor-pointer items-center justify-center rounded-full"
+          className="bg-canvas focus-visible:ring-sidebar-active flex size-6 cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
         >
           <ChevronsLeft className="size-4" />
         </button>

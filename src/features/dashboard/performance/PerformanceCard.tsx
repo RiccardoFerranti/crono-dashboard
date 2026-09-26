@@ -14,7 +14,10 @@ export function PerformanceCard() {
         <h2 id="performance-title" className="text-ink text-sm leading-5.5 font-semibold">
           May’s performance
         </h2>
-        <button type="button" className="text-sidebar-active text-sidebar flex cursor-pointer items-center gap-1 font-medium">
+        <button
+          type="button"
+          className="text-sidebar-active text-sidebar flex cursor-pointer items-center gap-1 rounded-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-active focus-visible:ring-offset-2"
+        >
           Edit KPIs
           <Pencil aria-hidden="true" className="size-3" strokeWidth={2.5} />
         </button>

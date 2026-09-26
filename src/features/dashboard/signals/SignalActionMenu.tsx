@@ -13,6 +13,7 @@ const actionButtonClassName = clsx(
   'bg-action hover:bg-sidebar-active',
   'px-4 py-1.75',
   'cursor-pointer text-center',
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-active focus-visible:ring-offset-2',
   'text-sm leading-4.5 font-medium tracking-normal text-white',
 );
 

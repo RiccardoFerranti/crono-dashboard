@@ -12,7 +12,10 @@ export function SidebarTrialBanner({ days }: SidebarTrialBannerProps) {
       <div className="relative flex flex-col items-start gap-1.5">
         <p className="text-ink text-sm leading-4.5 font-medium">Trial ends in {days} days</p>
 
-        <button type="button" className="bg-unread text-surface flex items-center gap-1 rounded-sm px-2 py-1">
+        <button
+          type="button"
+          className="bg-unread text-surface focus-visible:ring-sidebar-active flex items-center gap-1 rounded-sm px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-trial-bg"
+        >
           <span className="text-xs leading-4 font-medium">Upgrade plan</span>
 
           <Gift aria-hidden="true" className="size-3" />
