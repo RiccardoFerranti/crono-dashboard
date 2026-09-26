@@ -1,12 +1,9 @@
 import { performanceKpisFixture } from './data';
 import type { PerformanceKpi } from './types';
-
-const performanceLoadingDelay = 500;
+import { mockApiDelay, wait } from '../utils';
 
 export async function getPerformanceKpis(): Promise<PerformanceKpi[]> {
-  await new Promise<void>((resolve) => {
-    window.setTimeout(resolve, performanceLoadingDelay);
-  });
+  await wait(mockApiDelay);
 
   return performanceKpisFixture.map((kpi) => ({ ...kpi }));
 }

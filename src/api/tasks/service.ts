@@ -1,16 +1,9 @@
 import { tasksSummaryFixture } from './data';
 import type { TasksSummary } from './types';
-
-const tasksQueryDelay = 500;
-
-function waitForTasksQuery() {
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, tasksQueryDelay);
-  });
-}
+import { mockApiDelay, wait } from '../utils';
 
 export async function getTasksSummary(): Promise<TasksSummary> {
-  await waitForTasksQuery();
+  await wait(mockApiDelay);
 
   return { ...tasksSummaryFixture };
 }

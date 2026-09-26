@@ -1,16 +1,9 @@
 import { repliesSummaryFixture } from './data';
 import type { RepliesSummary } from './types';
-
-const repliesQueryDelay = 5000;
-
-function waitForRepliesQuery() {
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, repliesQueryDelay);
-  });
-}
+import { mockApiDelay, wait } from '../utils';
 
 export async function getRepliesSummary(): Promise<RepliesSummary> {
-  await waitForRepliesQuery();
+  await wait(mockApiDelay);
 
   return { ...repliesSummaryFixture };
 }

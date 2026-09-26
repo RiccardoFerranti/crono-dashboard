@@ -1,5 +1,6 @@
 import { signalsFixture } from './data';
 import type { Signal } from './types';
+import { mockApiDelay, wait } from '../utils';
 
 function copySignal(signal: Signal): Signal {
   // Copy nested data too, so callers cannot mutate the in-memory records by reference.
@@ -12,23 +13,9 @@ function copySignal(signal: Signal): Signal {
 
 // Keep the static fixture immutable and use a separate in-memory store for runtime changes.
 const signalRecords = signalsFixture.map(copySignal);
-const signalLoadingDelay = 500;
-const signalMutationDelay = 500;
-
-function waitForSignalLoading() {
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, signalLoadingDelay);
-  });
-}
-
-function waitForSignalMutation() {
-  return new Promise<void>((resolve) => {
-    window.setTimeout(resolve, signalMutationDelay);
-  });
-}
 
 async function removeSignal(id: string): Promise<Signal> {
-  await waitForSignalMutation();
+  await wait(mockApiDelay);
 
   const signalIndex = signalRecords.findIndex((signal) => signal.id === id);
 
@@ -41,7 +28,7 @@ async function removeSignal(id: string): Promise<Signal> {
 }
 
 export async function getSignals(): Promise<Signal[]> {
-  await waitForSignalLoading();
+  await wait(mockApiDelay);
   return signalRecords.map(copySignal);
 }
 
