@@ -12,7 +12,14 @@ function copySignal(signal: Signal): Signal {
 
 // Keep the static fixture immutable and use a separate in-memory store for runtime changes.
 const signalRecords = signalsFixture.map(copySignal);
+const signalLoadingDelay = 5000;
 const signalMutationDelay = 500;
+
+function waitForSignalLoading() {
+  return new Promise<void>((resolve) => {
+    window.setTimeout(resolve, signalLoadingDelay);
+  });
+}
 
 function waitForSignalMutation() {
   return new Promise<void>((resolve) => {
@@ -34,6 +41,7 @@ async function removeSignal(id: string): Promise<Signal> {
 }
 
 export async function getSignals(): Promise<Signal[]> {
+  await waitForSignalLoading();
   return signalRecords.map(copySignal);
 }
 
