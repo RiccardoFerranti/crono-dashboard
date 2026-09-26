@@ -1,7 +1,7 @@
 import { mockApiDelay, wait } from '../utils';
 
 import { signalsFixture } from './data';
-import type { Signal } from './types';
+import { type Signal, signalSchema, signalsResponseSchema } from './types';
 
 function copySignal(signal: Signal): Signal {
   // Copy nested data too, so callers cannot mutate the in-memory records by reference.
@@ -25,12 +25,12 @@ async function removeSignal(id: string): Promise<Signal> {
   }
 
   const [removedSignal] = signalRecords.splice(signalIndex, 1);
-  return copySignal(removedSignal);
+  return signalSchema.parse(copySignal(removedSignal));
 }
 
 export async function getSignals(): Promise<Signal[]> {
   await wait(mockApiDelay);
-  return signalRecords.map(copySignal);
+  return signalsResponseSchema.parse(signalRecords.map(copySignal));
 }
 
 export function completeSignal(id: string): Promise<Signal> {

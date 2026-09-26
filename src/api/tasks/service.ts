@@ -1,9 +1,9 @@
 import { mockApiDelay, wait } from '../utils';
 
 import { tasksSummaryFixture } from './data';
-import type { TasksSummary } from './types';
+import { type TasksSummary, tasksSummarySchema } from './types';
 
 export async function getTasksSummary(): Promise<TasksSummary> {
   await wait(mockApiDelay);
-  return { ...tasksSummaryFixture };
+  return tasksSummarySchema.parse({ ...tasksSummaryFixture });
 }
