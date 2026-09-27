@@ -25,6 +25,8 @@ dist-ssr
 
 coverage
 .bundle-analysis
+cypress/screenshots/
+cypress/videos/
 .env
 .env.*
 !.env.example

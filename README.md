@@ -311,9 +311,19 @@ npm run typecheck
 npm run test
 ```
 
+## End-to-End Tests
+
+Run the small Cypress happy-path suite against a local production build:
+
+```bash
+npm run e2e
+```
+
+For interactive Cypress use, start the production preview with `npm run preview:e2e` after building, then run `npm run cy:open`.
+
 A Husky pre-push hook runs the standard quality checks before pushing changes.
 
-GitHub Actions runs the same quality gate on `push` and `pull_request` in a clean environment using the Node version selected by `.nvmrc`. The production build remains a separate release check.
+GitHub Actions runs the standard quality gate followed by the Cypress E2E suite on `push` and `pull_request`, in a clean environment using the Node version selected by `.nvmrc`.
 
 ## Scope and Assumptions
 
