@@ -36,4 +36,14 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    files: ['cypress/**/*.{ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.mocha,
+        Cypress: 'readonly',
+        cy: 'readonly',
+      },
+    },
+  },
 )
