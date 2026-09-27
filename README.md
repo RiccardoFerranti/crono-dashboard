@@ -6,7 +6,7 @@ The implementation focuses on visual fidelity, responsive behavior, asynchronous
 
 ## Live Demo
 
-<!-- Add Vercel deployment URL -->
+[View the live application](https://crono-dashboard-alpha.vercel.app/)
 
 ## Visual Overview
 
