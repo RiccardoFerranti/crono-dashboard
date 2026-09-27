@@ -14,6 +14,7 @@ const menuItemClassName = clsx(
   'text-ink flex h-10 w-50 cursor-pointer items-center justify-between rounded-lg p-2',
   'text-xs leading-4 font-medium tracking-normal outline-none',
   'data-[highlighted]:bg-brand-soft data-[highlighted]:text-sidebar-active',
+  'active:bg-brand-soft active:text-sidebar-active',
 );
 
 export function SignalActionMenu({ signalName, onComplete, onDelete }: SignalActionMenuProps) {
