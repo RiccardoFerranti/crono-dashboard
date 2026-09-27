@@ -12,15 +12,15 @@ The implementation focuses on visual fidelity, responsive behavior, asynchronous
 
 ### Dashboard
 
-<!-- Add desktop screenshot -->
+![Crono Dashboard](./docs/dashboard-desktop.png)
 
-### Signals Interaction
+### Async Loading & Signals Interaction
 
-<!-- Add GIF showing loading + Complete/Delete interaction -->
+![Crono Dashboard Signals](./docs/dashboard-desktop-signals.gif)
 
 ### Responsive Layout
 
-<!-- Add responsive screenshot or GIF -->
+![Crono Dashboard Mobile](./docs/dashboard-mobile.png)
 
 ---
 
