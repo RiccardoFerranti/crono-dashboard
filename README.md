@@ -296,6 +296,13 @@ The generated production build can be inspected locally with:
 npm run preview
 ```
 
+The production JavaScript bundle can be inspected with an interactive visualization using:
+
+```bash
+
+npm run analyze
+```
+
 Individual checks can also be run separately:
 
 ```bash

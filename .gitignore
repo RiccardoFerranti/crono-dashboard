@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
 
 coverage
+.bundle-analysis
 .env
 .env.*
 !.env.example
